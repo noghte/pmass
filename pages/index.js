@@ -11,7 +11,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          pMass Playground
         </h1>
 
         <p className={styles.description}>
@@ -20,9 +20,9 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
+          <a href="/data" className={styles.card}>
+            <h3>Data &rarr;</h3>
+            <p>View a sample input file.</p>
           </a>
 
           <a href="https://nextjs.org/learn" className={styles.card}>

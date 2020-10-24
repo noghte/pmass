@@ -1,0 +1,71 @@
+{
+    "analysis": {
+      "analysisproperties": {
+        "type": "static",
+        "dim": "2D",
+        "ns": "2",
+        "ni": "100",
+        "dt": "1.0e-7",
+        "tol": "1.0e-7",
+        "precond": "1.0e-10",
+        "maxitr": "100",
+        "loadtype": "1",
+        "thickness": "1",
+        "loadsegment": [
+          {
+            "nts": "100",
+            "rs": "1"
+          },
+          {
+            "nts": "100",
+            "rs": "1"
+          }
+        ],
+        "zeroenergy": {
+          "type": "BondAssociated",
+          "m": "1.4"
+        }
+      },
+      "materials": [
+        {
+          "name": "Material 1",
+          "elasticproperties": {
+            "type": "isotropic",
+            "E": "210000",
+            "nu": "0.32",
+            "G": "8977",
+            "dens": "0.00001"
+          },
+          "materialmodel": {
+            "type": "elastic"
+          },
+          "damagemodel": {
+            "type": "CriticalStretch",
+            "s0": "0.01"
+          }
+        },
+        {
+          "name": "Material 2",
+          "elasticproperties": {
+            "type": "orthotropic",
+            "E1": "210000",
+            "nu12": "0.32",
+            "G12": "8977",
+            "dens": "0.00001",
+            "materialmodel": {
+              "type": "elastic"
+            },
+            "damagemodel": {
+              "type": "Hasin",
+              "Xt": "290500000",
+              "Xc": "290500000",
+              "Yt": "290500000",
+              "Yc": "290500000",
+              "S12": "290500000",
+              "S23": "290500000"
+            }
+          }
+        }
+      ]
+    }
+  }
