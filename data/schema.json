@@ -1,0 +1,740 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "properties": {
+      "analysis": {
+        "type": "object",
+        "properties": {
+          "analysisProperties": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "dimension": {
+                "title": "Dimension",
+                "type": "string",
+                "enum": ["2D", "3D"],
+                "default": "2D"
+              },
+              "numSegment": {
+                "type": "integer",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "numSave": {
+                "type": "integer"
+              },
+              "timeIncrement": {
+                "type": "number"
+              },
+              "tolerance": {
+                "type": "number"
+              },
+              "precondition": {
+                "type": "number"
+              },
+              "maxIteration": {
+                "type": "integer"
+              },
+              "loadType": {
+                "type": "integer"
+              },
+              "thickness": {
+                "type": "number"
+              },
+              "loadSegmentList": {
+                "type": "array",
+                "items": [
+                  {
+                    "type": "object",
+                    "properties": {
+                      "numIncrement": {
+                        "type": "integer"
+                      },
+                      "ratio": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "numIncrement",
+                      "ratio"
+                    ]
+                  },
+                  {
+                    "type": "object",
+                    "properties": {
+                      "numIncrement": {
+                        "type": "integer"
+                      },
+                      "ratio": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "numIncrement",
+                      "ratio"
+                    ]
+                  }
+                ]
+              },
+              "zeroEnergyMode": {
+                "type": "object",
+                "properties": {
+                  "type": {
+                    "type": "string"
+                  },
+                  "familyRatio": {
+                    "type": "number"
+                  }
+                },
+                "required": [
+                  "type",
+                  "familyRatio"
+                ]
+              }
+            },
+            "required": [
+              "type",
+              "dimension",
+              "numSegment",
+              "numSave",
+              "timeIncrement",
+              "tolerance",
+              "precondition",
+              "maxIteration",
+              "loadType",
+              "thickness",
+              "loadSegmentList",
+              "zeroEnergyMode"
+            ]
+          },
+          "materialList": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "elasticProperties": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "E": {
+                        "type": "number"
+                      },
+                      "nu": {
+                        "type": "number"
+                      },
+                      "G": {
+                        "type": "number"
+                      },
+                      "density": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "E",
+                      "nu",
+                      "G",
+                      "density"
+                    ]
+                  },
+                  "materialModel": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "type"
+                    ]
+                  },
+                  "damageModel": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "s0": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "s0"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "elasticProperties",
+                  "materialModel",
+                  "damageModel"
+                ]
+              },
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "elasticProperties": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string"
+                      },
+                      "E1": {
+                        "type": "integer"
+                      },
+                      "E2": {
+                        "type": "integer"
+                      },
+                      "nu12": {
+                        "type": "number"
+                      },
+                      "G12": {
+                        "type": "number"
+                      },
+                      "density": {
+                        "type": "number"
+                      },
+                      "materialModel": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "type"
+                        ]
+                      },
+                      "damageModel": {
+                        "type": "object",
+                        "properties": {
+                          "type": {
+                            "type": "string"
+                          },
+                          "Xt": {
+                            "type": "number"
+                          },
+                          "Xc": {
+                            "type": "number"
+                          },
+                          "Yt": {
+                            "type": "number"
+                          },
+                          "Yc": {
+                            "type": "number"
+                          },
+                          "S12": {
+                            "type": "number"
+                          },
+                          "S23": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "type",
+                          "Xt",
+                          "Xc",
+                          "Yt",
+                          "Yc",
+                          "S12",
+                          "S23"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "E1",
+                      "E2",
+                      "nu12",
+                      "G12",
+                      "density",
+                      "materialModel",
+                      "damageModel"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "elasticProperties"
+                ]
+              }
+            ]
+          },
+          "modelList": {
+            "type": "array",
+            "items": [
+              {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "partList": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "xc": {
+                                "type": "number"
+                              },
+                              "yc": {
+                                "type": "number"
+                              },
+                              "zc": {
+                                "type": "number"
+                              },
+                              "lx": {
+                                "type": "number"
+                              },
+                              "ly": {
+                                "type": "number"
+                              },
+                              "yaw": {
+                                "type": "number"
+                              },
+                              "pitch": {
+                                "type": "number"
+                              },
+                              "roll": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "xc",
+                              "yc",
+                              "zc",
+                              "lx",
+                              "ly",
+                              "yaw",
+                              "pitch",
+                              "roll"
+                            ]
+                          },
+                          "material": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "yaw": {
+                                "type": "number"
+                              },
+                              "pitch": {
+                                "type": "number"
+                              },
+                              "roll": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "name",
+                              "yaw",
+                              "pitch",
+                              "roll"
+                            ]
+                          },
+                          "grid": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "dx": {
+                                "type": "number"
+                              },
+                              "dy": {
+                                "type": "number"
+                              },
+                              "yaw": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "dx",
+                              "dy",
+                              "yaw"
+                            ]
+                          },
+                          "horizon": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "hx": {
+                                "type": "number"
+                              },
+                              "hy": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "hx",
+                              "hy"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape",
+                          "material",
+                          "grid",
+                          "horizon"
+                        ]
+                      }
+                    ]
+                  },
+                  "voidList": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "xc": {
+                                "type": "number"
+                              },
+                              "yc": {
+                                "type": "number"
+                              },
+                              "rc": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "xc",
+                              "yc",
+                              "rc"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape"
+                        ]
+                      }
+                    ]
+                  },
+                  "crackList": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "x1": {
+                                "type": "number"
+                              },
+                              "x2": {
+                                "type": "number"
+                              },
+                              "y1": {
+                                "type": "number"
+                              },
+                              "y2": {
+                                "type": "integer"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "x1",
+                              "x2",
+                              "y1",
+                              "y2"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape"
+                        ]
+                      }
+                    ]
+                  },
+                  "boundaryConditionList": {
+                    "type": "array",
+                    "items": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "xc": {
+                                "type": "number"
+                              },
+                              "yc": {
+                                "type": "number"
+                              },
+                              "zc": {
+                                "type": "number"
+                              },
+                              "lx": {
+                                "type": "number"
+                              },
+                              "ly": {
+                                "type": "number"
+                              },
+                              "yaw": {
+                                "type": "number"
+                              },
+                              "pitch": {
+                                "type": "number"
+                              },
+                              "roll": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "xc",
+                              "yc",
+                              "zc",
+                              "lx",
+                              "ly",
+                              "yaw",
+                              "pitch",
+                              "roll"
+                            ]
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "direction": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "direction",
+                              "value"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape",
+                          "properties"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "xc": {
+                                "type": "number"
+                              },
+                              "yc": {
+                                "type": "number"
+                              },
+                              "zc": {
+                                "type": "number"
+                              },
+                              "lx": {
+                                "type": "number"
+                              },
+                              "ly": {
+                                "type": "number"
+                              },
+                              "yaw": {
+                                "type": "number"
+                              },
+                              "pitch": {
+                                "type": "number"
+                              },
+                              "roll": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "xc",
+                              "yc",
+                              "zc",
+                              "lx",
+                              "ly",
+                              "yaw",
+                              "pitch",
+                              "roll"
+                            ]
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "direction": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "direction",
+                              "value"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape",
+                          "properties"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "shape": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "xc": {
+                                "type": "number"
+                              },
+                              "yc": {
+                                "type": "number"
+                              },
+                              "zc": {
+                                "type": "number"
+                              },
+                              "lx": {
+                                "type": "number"
+                              },
+                              "ly": {
+                                "type": "number"
+                              },
+                              "yaw": {
+                                "type": "number"
+                              },
+                              "pitch": {
+                                "type": "number"
+                              },
+                              "roll": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "xc",
+                              "yc",
+                              "zc",
+                              "lx",
+                              "ly",
+                              "yaw",
+                              "pitch",
+                              "roll"
+                            ]
+                          },
+                          "properties": {
+                            "type": "object",
+                            "properties": {
+                              "type": {
+                                "type": "string"
+                              },
+                              "direction": {
+                                "type": "string"
+                              },
+                              "value": {
+                                "type": "number"
+                              }
+                            },
+                            "required": [
+                              "type",
+                              "direction",
+                              "value"
+                            ]
+                          }
+                        },
+                        "required": [
+                          "shape",
+                          "properties"
+                        ]
+                      }
+                    ]
+                  },
+                  "initialVelocity": {
+                    "type": "object",
+                    "properties": {
+                      "vx": {
+                        "type": "number"
+                      },
+                      "vy": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "vx",
+                      "vy"
+                    ]
+                  }
+                },
+                "required": [
+                  "name",
+                  "partList",
+                  "voidList",
+                  "crackList",
+                  "boundaryConditionList",
+                  "initialVelocity"
+                ]
+              }
+            ]
+          }
+        },
+        "required": [
+          "analysisProperties",
+          "materialList",
+          "modelList"
+        ]
+      }
+    },
+    "required": [
+      "analysis"
+    ]
+  }
