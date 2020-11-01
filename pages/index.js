@@ -10,6 +10,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
+      
         <h1 className={styles.title}>
           pMass Playground
         </h1>
@@ -20,9 +21,9 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-        <a href="/dashboard" className={styles.card}>
-            <h3>Dashboard &rarr;</h3>
-            <p>The main functionality</p>
+        <a href="/projects" className={styles.card}>
+            <h3>Projects &rarr;</h3>
+            <p>View, Create, or Edit projects</p>
           </a>
 
           <a href="/data" className={styles.card}>

@@ -2,7 +2,7 @@
 import TopNavTemplate from '../components/TopNavTemplate'
 import React, { useState, useContext } from 'react'
 
-export default function Dashboard() {
+export default function ProjectsTemp() {
     const [selectedMenu, setSelectedMenu] = useState("menu1");
     function selectMenu(e) {
         let menuId = e.target.id;
